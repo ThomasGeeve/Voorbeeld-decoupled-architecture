@@ -89,3 +89,9 @@ The principle remains the same regardless of technology:
 3. **Use feature flags** - toggle between old (monolith) and new (decoupled) implementation
 4. **Keep the API contract stable** - backwards compatibility is essential
 5. **Test the contract** - use contract testing (e.g. Pact) or API-level integration tests
+
+
+## TL;DR
+**Backend (.NET)** — says "who can talk to me" via CORS (WithOrigins). It defines the API endpoints and whitelists the frontend's origin.
+**Frontend (React)** — says "who I want to talk to" via fetch() or axios. It sends HTTP requests to the backend's URL.
+Frontend calls the API, backend allows the call through CORS. That's the core link.
